@@ -1,5 +1,7 @@
 # Notion for Linux (Electron App)
 
+![Notion Electron App Screenshot](assets/Notion_Linux_SS.png)
+
 I recently switched to Ubuntu and noticed there wasn't an official Notion desktop application for Linux. Given that I use an enterprise account with sensitive data, I decided to build my own secure Notion app using Electron, and I'm sharing it with you all to use. If you encounter any issues, please let me know, and I'll do my best to assist you professionally.
 
 ## ✨ Features
