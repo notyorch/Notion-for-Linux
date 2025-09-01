@@ -1,0 +1,31 @@
+{
+  "name": "notion",
+  "productName": "Notion",
+  "version": "1.0.0",
+  "description": "Una aplicación de escritorio de Notion para Linux",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start -- --no-sandbox",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
+  },
+  "keywords": [],
+  "author": "jorgeenrique_vp",
+  "license": "MIT",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.1"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.8.3",
+    "@electron-forge/maker-deb": "^7.8.3",
+    "@electron-forge/maker-rpm": "^7.8.3",
+    "@electron-forge/maker-squirrel": "^7.8.3",
+    "@electron-forge/maker-zip": "^7.8.3",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.8.3",
+    "@electron-forge/plugin-fuses": "^7.8.3",
+    "@electron/fuses": "^1.8.0",
+    "electron": "37.4.0"
+  }
+}
