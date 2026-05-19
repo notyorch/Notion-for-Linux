@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Notion
+Comment=Unofficial Notion desktop client for Linux
+Exec=notion-for-linux %U
+Icon=notion-for-linux
+Terminal=false
+Type=Application
+Categories=Office;Utility;
+StartupWMClass=notion-for-linux
+MimeType=x-scheme-handler/notion;

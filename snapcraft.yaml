@@ -1,0 +1,46 @@
+name: notion-for-linux
+version: 1.1.0
+summary: Unofficial Notion desktop client for Linux
+description: |
+  Notion for Linux - A native desktop wrapper for Notion.so with enhanced features 
+  for Linux users. Includes zoom controls, window persistence, keyboard shortcuts, 
+  and a native application menu.
+
+grade: stable
+confinement: strict
+base: core22
+
+architectures:
+  - build-on: amd64
+  - build-on: arm64
+
+apps:
+  notion-for-linux:
+    command: bin/notion-for-linux
+    plugs:
+      - home
+      - x11
+      - wayland
+      - unity7
+      - network
+      - network-bind
+      - browser-support
+
+plugs:
+  home:
+  x11:
+  wayland:
+  unity7:
+  network:
+  network-bind:
+  browser-support:
+
+parts:
+  notion-for-linux:
+    plugin: nil
+    source: out/make/AppImage/x64/
+    source-type: local
+    override-build: |
+      mkdir -p $SNAPCRAFT_PART_INSTALL/bin
+      chmod +x Notion-1.1.0-x64.AppImage
+      cp Notion-1.1.0-x64.AppImage $SNAPCRAFT_PART_INSTALL/bin/notion-for-linux
