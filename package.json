@@ -7,14 +7,14 @@
   "scripts": {
     "start": "electron-forge start -- --no-sandbox",
     "package": "electron-forge package",
-    "make": "electron-forge make",
+    "make": "npm run make:all",
     "make:deb": "electron-forge make --targets @electron-forge/maker-deb",
-    "make:rpm": "electron-forge make --targets @electron-forge/maker-rpm",
+    "make:rpm": "node scripts/make-rpm.js",
     "make:appimage": "electron-forge make --targets @electron-forge/maker-appimage",
     "make:zip": "electron-forge make --targets @electron-forge/maker-zip",
     "make:snap": "electron-forge make --targets @electron-forge/maker-snap",
     "make:flatpak": "electron-forge make --targets @electron-forge/maker-flatpak",
-    "make:all": "npm run make:deb && npm run make:rpm && npm run make:appimage && npm run make:zip && npm run make:snap && npm run make:flatpak",
+    "make:all": "npm run make:deb && npm run make:appimage && npm run make:rpm && npm run make:zip && npm run make:snap && npm run make:flatpak",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
   },

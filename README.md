@@ -20,7 +20,7 @@ Unofficial Notion desktop client for Linux, built with Electron Forge.
 
 ```bash
 npm run make:deb
-npm run make:fedora
+npm run make:rpm
 npm run make:appimage
 ```
 

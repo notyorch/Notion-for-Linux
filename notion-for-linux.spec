@@ -3,7 +3,6 @@ Version:        1.1.0
 Release:        1%{?dist}
 Summary:        Unofficial Notion desktop client for Linux
 License:        MIT
-Homepage:       https://github.com/notyorch/Notion-for-Linux
 URL:            https://github.com/notyorch/Notion-for-Linux
 
 Source0:        notion-for-linux-%{version}-x64.AppImage

@@ -33,12 +33,12 @@
 ### ⚠️ Requires System Tools
 
 #### 5. **RPM** (Fedora/RHEL)
-- **Status**: Configuration ready, requires `rpmbuild` on build system
+- **Status**: Builds via the manual RPM spec after generating the AppImage
 - **Files**: 
   - Spec file: `notion-for-linux.spec`
   - Build Command**: `npm run make:rpm`
 - **Supported**: Fedora 38+, RHEL 9+, CentOS 9+
-- **Manual Build**: `rpmbuild -bb notion-for-linux.spec`
+- **Manual Build**: `npm run make:rpm`
 
 #### 6. **Snap** (Ubuntu/Linux)
 - **Status**: Configuration ready, requires `snapcraft` on build system
@@ -87,7 +87,7 @@ tar xzf Notion-linux-x64-1.1.0.tar.gz
 npm run make:all
 ```
 
-This builds: DEB, RPM, and AppImage (requires system tools for RPM).
+This builds: DEB, RPM, and AppImage. RPM uses the AppImage output plus `rpmbuild`.
 
 ## Build Custom Formats
 
