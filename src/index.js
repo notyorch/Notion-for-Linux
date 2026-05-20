@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const { app, BrowserWindow, Menu, dialog, shell } = require('electron');
+const { app, BrowserWindow, Menu, dialog, screen, shell } = require('electron');
 const startedBySquirrel = require('electron-squirrel-startup');
 
 if (startedBySquirrel) {
@@ -15,6 +15,8 @@ const NOTION_USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (K
 const WINDOW_STATE_FILE = 'window-state.json';
 const NOTION_REPO_URL = 'https://github.com/notyorch/Notion-for-Linux';
 const NOTION_URL = 'https://www.notion.so/';
+const DEFAULT_WINDOW_BOUNDS = { width: 1200, height: 800 };
+const MIN_WINDOW_BOUNDS = { width: 800, height: 600 };
 
 // Persist window bounds in userData so the app remembers the last desktop layout.
 const getWindowStatePath = () => path.join(app.getPath('userData'), WINDOW_STATE_FILE);
@@ -66,6 +68,38 @@ const isInternalNotionUrl = (url) => {
   } catch {
     return false;
   }
+};
+
+const clampWindowBounds = (state) => {
+  const bounds = { ...DEFAULT_WINDOW_BOUNDS };
+
+  if (Number.isInteger(state.width) && state.width > 0) {
+    bounds.width = state.width;
+  }
+
+  if (Number.isInteger(state.height) && state.height > 0) {
+    bounds.height = state.height;
+  }
+
+  bounds.width = Math.min(Math.max(bounds.width, MIN_WINDOW_BOUNDS.width), DEFAULT_WINDOW_BOUNDS.width);
+  bounds.height = Math.min(Math.max(bounds.height, MIN_WINDOW_BOUNDS.height), DEFAULT_WINDOW_BOUNDS.height);
+
+  if (Number.isInteger(state.x) && Number.isInteger(state.y)) {
+    const display = screen.getDisplayMatching({
+      x: state.x,
+      y: state.y,
+      width: bounds.width,
+      height: bounds.height,
+    });
+    const { x, y, width, height } = display.workArea;
+    const maxX = x + width - bounds.width;
+    const maxY = y + height - bounds.height;
+
+    bounds.x = maxX >= x ? Math.min(Math.max(state.x, x), maxX) : x;
+    bounds.y = maxY >= y ? Math.min(Math.max(state.y, y), maxY) : y;
+  }
+
+  return bounds;
 };
 
 // Build the native application menu for Linux desktop environments.
@@ -202,11 +236,12 @@ const buildAppMenu = (createWindow) => {
 
 const createWindow = () => {
   const state = readWindowState();
+  const bounds = clampWindowBounds(state);
   const win = new BrowserWindow({
-    width: state.width || 1200,
-    height: state.height || 800,
-    x: Number.isInteger(state.x) ? state.x : undefined,
-    y: Number.isInteger(state.y) ? state.y : undefined,
+    width: bounds.width,
+    height: bounds.height,
+    x: bounds.x,
+    y: bounds.y,
     minWidth: 800,
     minHeight: 600,
     title: 'Notion',

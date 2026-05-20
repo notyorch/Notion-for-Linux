@@ -6,6 +6,7 @@ License:        MIT
 URL:            https://github.com/notyorch/Notion-for-Linux
 
 Source0:        notion-for-linux-%{version}-x64.AppImage
+Source1:        notion-for-linux.png
 BuildArch:      x86_64
 
 %description
@@ -25,6 +26,7 @@ mkdir -p %{buildroot}%{_datadir}/applications
 mkdir -p %{buildroot}%{_datadir}/icons/hicolor/256x256/apps
 
 install -m 0755 %{SOURCE0} %{buildroot}%{_bindir}/notion-for-linux
+install -m 0644 %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/256x256/apps/notion-for-linux.png
 
 cat > %{buildroot}%{_datadir}/applications/notion-for-linux.desktop << 'EOF'
 [Desktop Entry]
@@ -42,6 +44,7 @@ EOF
 %files
 %{_bindir}/notion-for-linux
 %{_datadir}/applications/notion-for-linux.desktop
+%{_datadir}/icons/hicolor/256x256/apps/notion-for-linux.png
 
 %changelog
 * Mon May 18 2026 notyorch <jorge@example.com> - 1.1.0-1

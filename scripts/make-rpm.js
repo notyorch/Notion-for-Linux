@@ -14,6 +14,7 @@ const appImageDir = path.join(rootDir, 'out', 'make', 'AppImage')
 const expectedAppImagePath = path.join(appImageDir, 'x64', `Notion-${version}-x64.AppImage`)
 const sourceAppImageName = `notion-for-linux-${version}-x64.AppImage`
 const sourceAppImagePath = path.join(rpmTopDir, 'SOURCES', sourceAppImageName)
+const sourceIconPath = path.join(rpmTopDir, 'SOURCES', 'notion-for-linux.png')
 const specSourcePath = path.join(rootDir, 'notion-for-linux.spec')
 const specTargetPath = path.join(rpmTopDir, 'SPECS', 'notion-for-linux.spec')
 
@@ -91,6 +92,7 @@ async function main() {
   }
 
   await fsp.copyFile(appImagePath, sourceAppImagePath)
+  await fsp.copyFile(path.join(rootDir, 'assets', 'notion-icon.png'), sourceIconPath)
   await fsp.copyFile(specSourcePath, specTargetPath)
 
   run('rpmbuild', ['-bb', specTargetPath, '--define', `_topdir ${rpmTopDir}`])
