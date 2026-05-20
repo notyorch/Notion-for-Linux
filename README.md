@@ -4,6 +4,10 @@
 
 Unofficial Notion desktop client for Linux, built with Electron Forge.
 
+[![License](https://img.shields.io/github/license/notyorch/Notion-for-Linux?style=flat-square)](LICENSE)
+[![Version](https://img.shields.io/github/v/release/notyorch/Notion-for-Linux?style=flat-square)](https://github.com/notyorch/Notion-for-Linux/releases)
+[![Packages](https://img.shields.io/badge/packages-DEB%20%7C%20RPM%20%7C%20AppImage-2ea44f?style=flat-square)](PACKAGES.md)
+
 ## Features
 
 * Wraps the official Notion web app in a native Linux desktop shell.
@@ -12,9 +16,7 @@ Unofficial Notion desktop client for Linux, built with Electron Forge.
 
 ## Installation
 
-![deb](https://img.shields.io/badge/package-.deb-0d6efd)
-![rpm](https://img.shields.io/badge/package-.rpm-f28c28)
-![AppImage](https://img.shields.io/badge/package-.AppImage-2ea44f)
+Package exports and installation commands are documented in [PACKAGES.md](PACKAGES.md).
 
 ### Build packages from source
 

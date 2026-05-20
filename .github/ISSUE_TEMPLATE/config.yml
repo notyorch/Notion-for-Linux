@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Repository
+    url: https://github.com/notyorch/Notion-for-Linux
+    about: Project home and release information

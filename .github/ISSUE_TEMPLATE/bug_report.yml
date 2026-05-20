@@ -1,0 +1,56 @@
+name: Bug report
+description: Report a problem with Notion for Linux
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug.
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      placeholder: 1.1.0
+    validations:
+      required: true
+  - type: input
+    id: distro
+    attributes:
+      label: Linux distribution
+      placeholder: Ubuntu 24.04, Fedora 40, etc.
+    validations:
+      required: true
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package format
+      options:
+        - DEB
+        - RPM
+        - AppImage
+        - ZIP
+        - Snap
+        - Flatpak
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: What should happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      placeholder: What happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      placeholder: Paste relevant logs, errors, or screenshots here.
+    validations:
+      required: false
