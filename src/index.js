@@ -52,6 +52,9 @@ const saveWindowState = (win) => {
 const isInternalNotionUrl = (url) => {
   try {
     const parsed = new URL(url);
+    if (parsed.protocol !== 'https:') {
+      return false;
+    }
     return (
       parsed.hostname === 'notion.so' ||
       parsed.hostname.endsWith('.notion.so') ||

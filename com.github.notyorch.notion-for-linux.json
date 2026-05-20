@@ -1,7 +1,7 @@
 {
   "app-id": "com.github.notyorch.notion-for-linux",
   "runtime": "org.freedesktop.Platform",
-  "runtime-version": "23.08",
+  "runtime-version": "24.08",
   "sdk": "org.freedesktop.Sdk",
   "command": "notion-for-linux",
   "separate-locales": false,
@@ -27,16 +27,19 @@
         {
           "type": "file",
           "url": "file://@APPIMAGE_PATH@",
+          "sha256": "6dd1bd80a2c89b261b00e80e64f5d50ec8dd8ba5eba7a10abc3832524d9409d5",
           "dest-filename": "notion-for-linux-1.1.0-x64.AppImage"
         },
         {
           "type": "file",
           "url": "file://@DESKTOP_PATH@",
+          "sha256": "2ffcbc2dfffa2fe54ecd557d07be2890d3e94d682770688b87a096d6a9d146cd",
           "dest-filename": "notion-for-linux.desktop"
         },
         {
           "type": "file",
           "url": "file://@ICON_PATH@",
+          "sha256": "a92189a881568c0a81186e7ef26807155e906127d6011b052aea54176882a684",
           "dest-filename": "notion-icon.png"
         }
       ]

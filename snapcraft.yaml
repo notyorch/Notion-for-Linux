@@ -23,7 +23,6 @@ apps:
       - wayland
       - unity7
       - network
-      - network-bind
       - browser-support
 
 plugs:
@@ -32,7 +31,6 @@ plugs:
   wayland:
   unity7:
   network:
-  network-bind:
   browser-support:
 
 parts:
@@ -42,5 +40,6 @@ parts:
     source-type: local
     override-build: |
       mkdir -p $SNAPCRAFT_PART_INSTALL/bin
-      chmod +x Notion-1.1.0-x64.AppImage
-      cp Notion-1.1.0-x64.AppImage $SNAPCRAFT_PART_INSTALL/bin/notion-for-linux
+      appimage="$(find . -maxdepth 1 -name '*.AppImage' -print -quit)"
+      chmod +x "$appimage"
+      cp "$appimage" "$SNAPCRAFT_PART_INSTALL/bin/notion-for-linux"

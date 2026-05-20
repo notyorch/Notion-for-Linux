@@ -24,6 +24,10 @@ function run(command, args) {
     shell: false,
   })
 
+  if (result.error) {
+    throw result.error
+  }
+
   if (result.status !== 0) {
     process.exit(result.status ?? 1)
   }
