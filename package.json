@@ -27,7 +27,7 @@
   "devDependencies": {
     "@electron-forge/cli": "^7.8.3",
     "@electron-forge/maker-appimage": "github:duzda/electron-forge-maker-appimage#5cc3a725e8b5a3135db38b77048267cfbcb89e84",
-    "@electron-forge/maker-deb": "^7.8.3",
+    "@electron-forge/maker-deb": "^7.11.2",
     "@electron-forge/maker-flatpak": "^7.11.1",
     "@electron-forge/maker-rpm": "^7.8.3",
     "@electron-forge/maker-snap": "^7.11.1",
